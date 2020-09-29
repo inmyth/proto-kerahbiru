@@ -1,5 +1,12 @@
 # kerahbiru-proto
 
+Kerahbiru frontend prototype on Vue.
+Should have skeletons:
+- general layout
+- proto routes
+- ws handling
+
+
 ## Project setup
 ```
 npm install
