@@ -4,10 +4,12 @@ Kerahbiru frontend prototype on Vue.
 Should have skeletons:
 - general layout
 - [x] proto routes
-- http connection
+- [x] proto http connection
 - jwt store and retrieve
 - proto login 
 - ws handling
+- [x] dev api http server
+- [x] dev api ws server
 
 
 

@@ -1,5 +1,5 @@
 <template>
-  <v-container list-md>
+  <v-container>
     
     <v-row>
         <v-col>

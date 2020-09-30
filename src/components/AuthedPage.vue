@@ -63,7 +63,8 @@ export default {
     drawer: null,
     menus: [
       { title: 'Home', icon: 'mdi-home', url: '/' },
-      { title: 'Profile', icon: 'mdi-heart', url: '/profile' },
+      { title: 'Profile', icon: 'mdi-account-settings-outline', url: '/profile' },
+      { title: 'Http Api', icon: 'mdi-server-network', url: '/hapi' },
     ],
   }),
 };

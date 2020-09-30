@@ -1,17 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import {AuthedPage, Home, Profile} from '../components'
+import {AuthedPage, Home, Profile, HttpApi} from '../components'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
     component: AuthedPage,
     children: [
       { path: '', component: Home },
       { path: 'profile', component: Profile },
+      { path: 'hapi', component: HttpApi },
     ]
   },
   // {
