@@ -1,85 +1,17 @@
 <template>
-  <v-app id="inspire">
-    <v-navigation-drawer app      
-      v-model="drawer"
-      bottom
-      temporary
-      >
-      
-      <v-list-item class="px-2">
-        <v-list-item-avatar>
-          <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
-        </v-list-item-avatar>
-        <v-list-item-content>
-        <v-list-item-title>Martin Utama</v-list-item-title>
-        <v-list-item-subtitle>xxx@gmail.com</v-list-item-subtitle>
-        </v-list-item-content>
-        <v-btn
-          icon
-          @click.stop="drawer = !drawer"
-        >
-          <v-icon>mdi-chevron-left</v-icon>
-        </v-btn>
-      </v-list-item>
-      <v-divider />
-      <v-list nav>
-        <v-list-item
-          v-for="menu in menus"
-          :key="menu.title"
-          link
-        >
-          <v-list-item-icon>
-            <v-icon>{{ menu.icon }}</v-icon>
-          </v-list-item-icon>
-
-          <v-list-item-content>
-            <v-list-item-title>{{ menu.title }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-app-bar app height="60">
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Application</v-toolbar-title>
-    </v-app-bar>
-
-    <v-main>
-      <v-layout row wrap justify-center>
-      <v-flex xs12 sm8 md6>
-        <Profile/>
-      </v-flex>
-      </v-layout>
-    </v-main>
-
+  <v-app>
+    <div id="app" >
+          <router-view></router-view>
+    </div>
   </v-app>
 </template>
 
 <script>
-import Profile from './components/Profile';
+  export default {
 
-export default {
-  name: 'App',
-
-  components: {
-    Profile,
-  },
-
-  data: () => ({
-    drawer: null,
-    menus: [
-      { title: 'Index', icon: 'mdi-web', url: '/' },
-      { title: 'Home', icon: 'mdi-home', url: '/home' },
-      { title: 'Favorites', icon: 'mdi-heart', url: '/favorites' },
-      { title: 'About', icon: 'mdi-information-variant', url: '/about' }
-    ],
-    links: [
-      'Dashboard',
-      'Messages',
-      'Profile',
-      'Updates',
-    ],
-  }),
-};
+  }
 </script>
+
+<style>
+
+</style>
