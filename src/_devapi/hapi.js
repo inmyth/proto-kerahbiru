@@ -1,91 +1,103 @@
-const http = require('http');
+var express = require("express");
+var cors = require('cors')
 
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const server = http.createServer((req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+var app = express();
+app.use(cors());
+app.use(express.json());
 
-  if (req.url === '/favicon.ico') {
-    res.writeHead(200, {'Content-Type': 'image/x-icon'} );
-    res.end();
-    return;
-  } else if (req.url === '/workers') {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-
-    const r = [
-      {
-        name: "Martin",
-        title : "Welder",
-        location: "Bandung"
-      },
-      {
-        name: "Budi",
-        title : "HVAC",
-        location: "Jakarta"
-      },
-      {
-        name: "Cahyadi",
-        title : "Forklift",
-        location: "Surabaya"
-      },
-      {
-        name: "Utama",
-        title : "Crane",
-        location: "Semarang"
-      },
-      {
-        name: "AB",
-        title : "Welder",
-        location: "Bandung"
-      },
-      {
-        name: "BC",
-        title : "HVAC",
-        location: "Jakarta"
-      },
-      {
-        name: "DE",
-        title : "Forklift",
-        location: "Surabaya"
-      },
-      {
-        name: "EF",
-        title : "Crane",
-        location: "Semarang"
-      },
-      {
-        name: "FG",
-        title : "Welder",
-        location: "Bandung"
-      },
-      {
-        name: "HI",
-        title : "HVAC",
-        location: "Jakarta"
-      },
-      {
-        name: "IJ",
-        title : "Forklift",
-        location: "Surabaya"
-      },
-      {
-        name: "JK",
-        title : "Crane",
-        location: "Semarang"
-      },
-    ]
-
-
-    res.end(JSON.stringify(r));
-    return;
-  }
-  else {
-    res.end('Hello World');
-  }
+var server = app.listen(port, function(){
+    console.log("Node.js is listening to " + hostname + ":" + port);
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.get("/", function(req, res, next){
+    let r = {data : "Hello"};
+    res.json(r);
+});
+
+app.post("/login", function(req, res, next){
+    let r = {
+      success: true,
+      data : {
+        ownerId : 89,
+        token : "abcdef123"
+      }
+    }
+    if(req.body.password != 'abc'){
+      res.status(401);
+      r.success = false;
+      r.data = null;
+    }
+    else{
+      res.status(200);
+    }
+    res.json(r);  
+});
+
+app.get("/workers", function(req, res, next){
+  const r = [
+    {
+      name: "Martin",
+      title : "Welder",
+      location: "Bandung"
+    },
+    {
+      name: "Budi",
+      title : "HVAC",
+      location: "Jakarta"
+    },
+    {
+      name: "Cahyadi",
+      title : "Forklift",
+      location: "Surabaya"
+    },
+    {
+      name: "Utama",
+      title : "Crane",
+      location: "Semarang"
+    },
+    {
+      name: "AB",
+      title : "Welder",
+      location: "Bandung"
+    },
+    {
+      name: "BC",
+      title : "HVAC",
+      location: "Jakarta"
+    },
+    {
+      name: "DE",
+      title : "Forklift",
+      location: "Surabaya"
+    },
+    {
+      name: "EF",
+      title : "Crane",
+      location: "Semarang"
+    },
+    {
+      name: "FG",
+      title : "Welder",
+      location: "Bandung"
+    },
+    {
+      name: "HI",
+      title : "HVAC",
+      location: "Jakarta"
+    },
+    {
+      name: "IJ",
+      title : "Forklift",
+      location: "Surabaya"
+    },
+    {
+      name: "JK",
+      title : "Crane",
+      location: "Semarang"
+    },
+  ]
+  res.json(r);
 });

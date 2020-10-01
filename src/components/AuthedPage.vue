@@ -46,6 +46,7 @@
     </v-app-bar>
 
     <v-main>
+      <v-alert v-if="alert.message" :type="alert.type" :value="true"  class="subheading">{{alert.message}}</v-alert>
       <v-layout row wrap justify-center>
       <v-flex xs12 sm8 md6>
         <router-view></router-view>
@@ -58,14 +59,29 @@
 
 <script>
 export default {
-  name: 'AuthenticatedFrame',
+  name: 'AuthenticatedPage',
   data: () => ({
     drawer: null,
     menus: [
       { title: 'Home', icon: 'mdi-home', url: '/' },
       { title: 'Profile', icon: 'mdi-account-settings-outline', url: '/profile' },
       { title: 'Http Api', icon: 'mdi-server-network', url: '/hapi' },
+      { title: 'Logout', icon: 'mdi-logout', url: '/login'},
     ],
   }),
+  computed: {
+      alert () {
+          return this.$store.state.alert
+      }
+  },
+  watch:{
+      $route (){
+          // clear alert on location change
+          this.$store.dispatch('alert/clear');
+      }
+  },
+  created() {
+  }
+  
 };
 </script>

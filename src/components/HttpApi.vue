@@ -55,7 +55,6 @@ export default {
             this.loading = false;
             this.isError = true;
             this.errorMsg = "Need a running server. Run hapi server in /_devapi";
-            console.log("e");
             console.log(e);
           }      
         )

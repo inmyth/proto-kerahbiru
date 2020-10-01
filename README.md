@@ -5,13 +5,16 @@ Should have skeletons:
 - general layout
 - [x] proto routes
 - [x] proto http connection
-- jwt store and retrieve
-- proto login 
+- [x] jwt store and retrieve
+- [x] proto login 
 - ws handling
 - [x] dev api http server
 - [x] dev api ws server
+- [x] replaced implicit localStorage access with store getters in routes
 
-
+Vuex
+- Vuex store contains states (logged in, loggin in, error msg accross pages)
+- localStorage contains jwt token ("user")
 
 ## Project setup
 ```
