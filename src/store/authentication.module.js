@@ -49,8 +49,9 @@ export const authentication = {
         }
     },
     getters: {
-        isLoggedOut: state => {
-            return state.user === undefined;
+        isLoggedIn: state => {
+            console.log(state.user);
+            return state.user != null;
         }
     }
 }

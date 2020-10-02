@@ -10,7 +10,7 @@ Should have skeletons:
 - ws handling
 - [x] dev api http server
 - [x] dev api ws server
-- [x] replaced implicit localStorage access with store getters in routes
+- ~[x]replaced implicit localStorage access with store getters in routes~ cannot be done, reverted back see https://www.digitalocean.com/community/tutorials/how-to-set-up-vue-js-authentication-and-route-handling-using-vue-router
 
 Vuex
 - Vuex store contains states (logged in, loggin in, error msg accross pages)

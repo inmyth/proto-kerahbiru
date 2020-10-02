@@ -9,9 +9,9 @@ const routes = [
     path: '/',
     component: AuthedPage,
     children: [
-      { path: '', component: Home },
-      { path: 'profile', component: Profile },
-      { path: 'hapi', component: HttpApi },
+      { path: '', component: Home, meta: { requiresAuth: true } },
+      { path: 'profile', component: Profile, meta: { requiresAuth: true } },
+      { path: 'hapi', component: HttpApi, meta: { requiresAuth: true } },
     ]
   },
   {
@@ -32,17 +32,21 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  // redirect to login page if not logged in and trying to access a restricted page
-  const publicPages = ['/login'];
-  // const authRequired = !to.path.startsWith(publicPages)
-  const authRequired = publicPages.find(p => to.path.startsWith(p)) === undefined;
-
-  // Vuex might not be initialized when this functions is invoked
-  let isLoggedOut = Vue.store ? Vue.store.getters.isLoggedOut : false
-  if (authRequired && isLoggedOut) {
-    return next('/login');
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    // see https://router.vuejs.org/guide/advanced/meta.html
+    // https://www.digitalocean.com/community/tutorials/how-to-set-up-vue-js-authentication-and-route-handling-using-vue-router
+    let isLoggedIn = localStorage.getItem('user') != null;
+    if (!isLoggedIn) {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
+    }
+  } else {
+    next() // make sure to always call next()!
   }
-  next();
 })
 
 export default router
