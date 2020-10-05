@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import { AuthedPage, PublicPage, Login, Home, Profile, HttpApi } from '../components'
+import { AuthedPage, PublicPage, Login, Home, Profile, HttpApi, Certificate} from '../components'
 
 Vue.use(VueRouter)
 
@@ -19,6 +19,7 @@ const routes = [
     component: PublicPage,
     children: [
       { path: 'login', component: Login },
+      { path: 'cert', component: Certificate}
 
     ]
   }, 

@@ -5,17 +5,30 @@
         <v-col>
             <v-card>
                 <v-carousel>
+                    <template v-for="(item,i) in items">
                     <v-carousel-item
-                    v-for="(item,i) in items"
+                    v-if="item.src"
                     :key="i"
                     :src="item.src"
                     reverse-transition="fade-transition"
                     transition="fade-transition"
-                    ></v-carousel-item>
+                    >
+                    </v-carousel-item>
+                    <v-carousel-item
+                    class="video-elem"
+                    v-if="item.content"
+                    :key="i"
+                    v-html="item.content"
+                    reverse-transition="fade-transition"
+                    transition="fade-transition"
+                    >
+                    </v-carousel-item>
+                    </template>
                 </v-carousel>
             </v-card>
         </v-col>
     </v-row>
+    
 
     <v-row>
         <v-col>
@@ -67,6 +80,37 @@
             <v-card-text class="font-weight-light">
                 {{about}}
             </v-card-text>
+
+            <v-divider></v-divider>
+            <v-card-actions>
+            <v-btn
+                text
+                color="deep-purple accent-4"
+            >
+                Edit
+            </v-btn>
+            </v-card-actions>
+        
+        </v-card>
+        </v-col>
+    </v-row>
+    <v-row>
+        <v-col>
+            <v-card
+            class="mx-auto"
+            
+            >
+            <v-card-title>
+            <span class="title font-weight-bold">Skills</span>
+            </v-card-title>
+            
+            <template v-for="(skill,i) in skills">
+                <v-card-text 
+                :key="i">
+                    {{skill.name}}
+                </v-card-text>
+            </template>
+
 
             <v-divider></v-divider>
             <v-card-actions>
@@ -160,6 +204,9 @@
             src: 'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
           },
           {
+            content: ' <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uslk0i5ocuo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+          },
+          {
             src: 'https://images.unsplash.com/photo-1545186070-de624ed19875?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
           },
           {
@@ -169,6 +216,20 @@
             src: 'https://images.unsplash.com/photo-1530639834082-05bafb67fbbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' 
           }
         ],
+        skills: [
+            {
+                name: "Underwater welding"
+            },
+            {
+                name: "Stainless steel welding"
+            },
+            {
+                name: "Silver alloy brazing"
+            },
+            {
+                name: "Welding practitioner"
+            }
+        ]
     }),
   }
 </script>
@@ -178,5 +239,10 @@
   white-space: pre-wrap; 
   word-wrap: break-word;
   font-family: inherit;
+}
+
+.video-elem{
+  height: 100%;
+  width: 100%;
 }
 </style>

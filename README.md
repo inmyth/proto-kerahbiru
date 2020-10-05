@@ -16,6 +16,12 @@ Vuex
 - Vuex store contains states (logged in, loggin in, error msg accross pages)
 - localStorage contains jwt token ("user")
 
+Secure websocket
+- https://christian-schneider.net/CrossSiteWebSocketHijacking.html
+- https://security.stackexchange.com/questions/115716/is-the-origin-header-really-useful-for-securing-a-websocket
+- check Origin header
+- send and check token on handshake
+
 ## Project setup
 ```
 npm install
