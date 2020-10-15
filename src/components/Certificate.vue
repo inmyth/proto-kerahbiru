@@ -1,8 +1,8 @@
 <template>
 <v-container fill-height class="justify-center" >
-    <v-card height="100%" width="80%" class="pa-2" >
+    <v-card height="100%" width="70%" class="pa-2" >
         <v-row> 
-            <v-col >         
+            <v-col>         
                 <v-row >
                     <v-col md="4" xs="6" align="center">
                         <v-img
@@ -16,8 +16,7 @@
                         {{title}}
                     </v-card-title>
                     <v-card-text >
-                        <span class="text-overline font-weight-light">Issued by</span> <a href="www.depnaker.go.id">{{issuer}}</a>
-                        
+                        <span class="text-overline font-weight-light">Issued by</span> <a href="www.depnaker.go.id">{{issuer}}</a>                   
                     </v-card-text>
                     <v-card-text class="text-h6 font-weight-light">
                         {{desc}}
@@ -40,25 +39,45 @@
                         </v-card-text>
                     </v-row>
                     <v-row>
-                        <v-col md="2">
+                        <v-col >
                             <div class="text-overline font-weight-light">Accepted</div>     
-                            <div class="text-h6">{{date.accepted}}</div>    
+                            <div class="">{{date.accepted}}</div>    
                         </v-col>
                         <v-col>
                             <div class="text-overline font-weight-light">Valid</div>     
-                            <div class="text-h6">{{date.end}}</div>   
+                            <div class="">{{date.end}}</div>   
                         </v-col>
                     </v-row>
                     </v-col>
 
                 </v-row>
-
+                <v-row class="pa-6">
+                    <v-col>
+                        <v-list dense>
+                            <v-subheader class="text-h6 font-weight-light">Perusahaan pemakai sertifikat</v-subheader>
+                            <v-list-item-group
+                                color="primary"
+                            >
+                                <v-list-item
+                                v-for="(company, i) in companies"
+                                :key="i"
+                                inactive
+                                >
+                                <v-row justify="space-between">
+                                    <v-col md="11" xs="12">                                    
+                                            <div>{{company.name}}</div>
+                                    </v-col>
+                                    <v-col>                                     
+                                            <div class="font-weight-light">{{company.count}}</div>
+                                    </v-col>
+                                </v-row>
+                                </v-list-item>
+                            </v-list-item-group>
+                        </v-list>
+                    </v-col>
+                </v-row>
             
             </v-col>
-        </v-row>
-        <v-row>
-
-
         </v-row>
     </v-card>
  
@@ -81,7 +100,26 @@
         date: {
             accepted: '2020 Aug 21',
             end: '2023 Aug 21'
-        }
+        },
+        companies: [
+            {
+                name: 'BP',
+                count: 1000,
+            },
+            {
+                name: 'Chevron',
+                count: 500
+            },
+            {
+                name: 'KBR',
+                count: 400
+            },
+            {
+                name: 'Pertamina',
+                count: 300
+            }
+
+        ]
     }),
     created() {
     }

@@ -97,20 +97,65 @@
     <v-row>
         <v-col>
             <v-card
+            class="mx-auto"          
+            >
+            <v-card-title>
+            <span class="title font-weight-bold">Certificates</span>
+            </v-card-title>
+            
+            <v-list dense>
+                <v-list-item-group
+                    color="primary"
+                >
+                    <v-list-item
+                    v-for="(certificate,i) in certificates"
+                    :key="i"
+                    to="/cert"
+                    >
+                        <v-list-item-content>
+                            <v-card-text>
+                            {{certificate.name}}
+                            </v-card-text>
+                        </v-list-item-content>
+                    </v-list-item>
+                </v-list-item-group>
+            </v-list>
+            <v-divider></v-divider>
+            <v-card-actions>
+            <v-btn
+                text
+                color="deep-purple accent-4"
+            >
+                Edit
+            </v-btn>
+            </v-card-actions>
+        
+        </v-card>
+        </v-col>
+    </v-row>
+    <v-row>
+        <v-col>
+            <v-card
             class="mx-auto"
             
             >
             <v-card-title>
             <span class="title font-weight-bold">Skills</span>
             </v-card-title>
-            
-            <template v-for="(skill,i) in skills">
-                <v-card-text 
-                :key="i">
-                    {{skill.name}}
-                </v-card-text>
-            </template>
 
+            <v-card-text>
+            <template v-for="(skill,i) in skills">
+                <v-chip
+                    :key="i"
+                    class="ma-2"                         
+                    color="orange"
+                    label
+                    outlined
+                    >
+                    {{skill.name}}
+                </v-chip>
+            </template>
+            </v-card-text>
 
             <v-divider></v-divider>
             <v-card-actions>
@@ -182,7 +227,7 @@
             role: "Certified Welder, Construction"
         },
         
-        about: "I am a Scala/Java software engineer with passion in functional programming and multi-threaded system. Throughout my career I have developed various applications from Android, database, back end, front end, and cloud. I'm an eager learner and always look for an opportunity to grow.",
+        about: "I am welder by profession, I worked as a GMAW/SMAW Welder at HITACHI CONSTRUCTION MACHINERY CO. LTD for 3 years. I know the basics of welding and fabrication as well. My experiences in the field of welding is enough to perform my duties well and I can guarantee that the quality of my weld will be at its finest",
         experiences: [
             {
                 logo: "https://media-exp1.licdn.com/dms/image/C510BAQEAuF55wOgC_A/company-logo_100_100/0?e=1609372800&v=beta&t=Hjxxc6EHA7-iNW1dSPr5CwWIbH4gy1FCF1XP5D8SMuA",
@@ -228,6 +273,14 @@
             },
             {
                 name: "Welding practitioner"
+            }
+        ],
+        certificates: [
+            {
+                name: "Welding Kelas 3"
+            },
+            {
+                name: "Bahasa Inggris"
             }
         ]
     }),
