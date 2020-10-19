@@ -5,6 +5,7 @@ export {default as HttpApi} from './HttpApi'
 export {default as PublicPage} from './PublicPage'
 export {default as Login} from './Login'
 export {default as Certificate} from './Certificate'
+export {default as Certificate2} from './Certificate2'
 
 
 

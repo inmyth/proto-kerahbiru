@@ -6,9 +6,9 @@
                 <v-row >
                     <v-col md="4" xs="6" align="center">
                         <v-img
-                        lazy-src="https://images.youracclaim.com/size/340x340/images/d67d6178-99f2-48dd-b757-b6e717e1bccf/Oracle-Certification-badge_OC-Associate600X600.png"
+                        lazy-src="https://i.postimg.cc/pX0QGk1R/ordreka.jpg"
                         max-width="300"
-                        src="https://images.youracclaim.com/size/340x340/images/d67d6178-99f2-48dd-b757-b6e717e1bccf/Oracle-Certification-badge_OC-Associate600X600.png"
+                        src="https://i.postimg.cc/pX0QGk1R/ordreka.jpg"
                         ></v-img>
                     </v-col>
                     <v-col >
@@ -34,19 +34,9 @@
                     </template>
                     <v-row>
                         <v-card-text>
-                            <div class="text-overline font-weight-light">Issued to</div>     
-                            <div class="text-h4">{{name}}</div>                 
+                            <p class="text-subtitle-1">Issued to <span class="font-weight-bold">{{name}}</span> at {{date.accepted}}.</p>     
+                            <p class="font-weight-light">With reference {{ref}}.</p>
                         </v-card-text>
-                    </v-row>
-                    <v-row>
-                        <v-col >
-                            <div class="text-overline font-weight-light">Accepted</div>     
-                            <div class="">{{date.accepted}}</div>    
-                        </v-col>
-                        <v-col>
-                            <div class="text-overline font-weight-light">Valid</div>     
-                            <div class="">{{date.end}}</div>   
-                        </v-col>
                     </v-row>
                     </v-col>
 
@@ -87,20 +77,18 @@
 <script>
   export default {
     data: () => ({
-        title: 'Sertifikat Juru Las - Juru Las Kelas Tiga',
-        issuer: 'Departemen Tenaga Kerja',
-        desc: 'Juru las tersebut diijinkan melaksanakan pengelasan sampai batas-batas yang ditetapkan dalam peraturan dan diwajibkan menerapkan melaksanakan Prinsip-prinsip Keselamatan Kerja',
+        title: 'Certification of Completion, Defensive Driving Training For Trailer Operator',
+        issuer: 'ord rekacipta dinamika',
+        desc: 'This document certifies that the participant has passed the course assessment of trailer truck defense driving.',
         skills: [
-            'gas-welding',
-            'kelas-3',
-            'electric-welding',
-
+            'defensive driving - trailer'
         ],
-        name: 'Martin Utama',
+
+        name: 'Ade Erwin',
         date: {
-            accepted: '2020 Aug 21',
-            end: '2023 Aug 21'
+            accepted: '2018 May 18',
         },
+        ref: "ORD-01/02/2018/5695",
         companies: [
             {
                 name: 'BP',
@@ -125,9 +113,10 @@
     }
   }
 </script>
-<style scoped>
-    .break-word {
-        overflow-wrap: break-word;
-        word-break: normal;
-    }
+<style>
+.break-word {
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
 </style>
