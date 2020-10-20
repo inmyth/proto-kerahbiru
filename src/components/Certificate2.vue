@@ -1,6 +1,6 @@
 <template>
 <v-container fill-height class="justify-center" >
-    <v-card height="100%" width="70%" class="pa-2" >
+    <v-card  width="70%" class="pa-2" >
         <v-row> 
             <v-col>         
                 <v-row >
@@ -41,32 +41,7 @@
                     </v-col>
 
                 </v-row>
-                <v-row class="pa-6">
-                    <v-col>
-                        <v-list dense>
-                            <v-subheader class="text-h6 font-weight-light">Perusahaan pemakai sertifikat</v-subheader>
-                            <v-list-item-group
-                                color="primary"
-                            >
-                                <v-list-item
-                                v-for="(company, i) in companies"
-                                :key="i"
-                                inactive
-                                >
-                                <v-row justify="space-between">
-                                    <v-col md="11" xs="12">                                    
-                                            <div>{{company.name}}</div>
-                                    </v-col>
-                                    <v-col>                                     
-                                            <div class="font-weight-light">{{company.count}}</div>
-                                    </v-col>
-                                </v-row>
-                                </v-list-item>
-                            </v-list-item-group>
-                        </v-list>
-                    </v-col>
-                </v-row>
-            
+     
             </v-col>
         </v-row>
     </v-card>
@@ -78,7 +53,7 @@
   export default {
     data: () => ({
         title: 'Certification of Completion, Defensive Driving Training For Trailer Operator',
-        issuer: 'ord rekacipta dinamika',
+        issuer: 'PT Ord Rekacipta Dinamika',
         desc: 'This document certifies that the participant has passed the course assessment of trailer truck defense driving.',
         skills: [
             'defensive driving - trailer'
@@ -92,21 +67,8 @@
         companies: [
             {
                 name: 'BP',
-                count: 1000,
+                count: 10,
             },
-            {
-                name: 'Chevron',
-                count: 500
-            },
-            {
-                name: 'KBR',
-                count: 400
-            },
-            {
-                name: 'Pertamina',
-                count: 300
-            }
-
         ]
     }),
     created() {
