@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "serve": "(pm2 delete hapi & pm2 start ./devapi/hapi.js) && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@aws-amplify/ui-vue": "^0.2.25",
+    "aws-amplify": "^3.3.6",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
