@@ -32,6 +32,11 @@ npm install
 npm run serve
 ```
 
+### Run serve with pm2 on server
+```
+pm2 restart .\ecosystem.config.js
+```
+
 ### Compiles and minifies for production
 ```
 npm run build
@@ -41,6 +46,7 @@ npm run build
 ```
 npm run lint
 ```
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
